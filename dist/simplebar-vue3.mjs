@@ -29,30 +29,30 @@ const L = /* @__PURE__ */ g({
   emits: ["created", "scroll", "wheel"],
   setup(e, { expose: n, emit: t }) {
     const r = e, l = p(null), o = p(null), { tag: V, ...v } = k(r);
-    n(l), M(l);
-    function s(i) {
-      if (!o.value || i === "activated" && l.value)
+    n({ value: l }), M(l);
+    function s(a) {
+      if (!o.value || a === "activated" && l.value)
         return;
-      const u = { ...x(v) }, d = H(u), a = new C(
+      const u = { ...x(v) }, d = H(u), i = new C(
         o.value,
         Object.keys(d).length > 0 ? d : void 0
       );
-      l.value = a;
-      const m = a.getScrollElement();
+      l.value = i;
+      const m = i.getScrollElement();
       m.addEventListener("scroll", (c) => {
         t("scroll", c);
       }), m.addEventListener("wheel", (c) => {
         t("wheel", c);
-      }), t("created", a);
+      }), t("created", i);
     }
     return h(() => s("mounted")), w(() => s("activated")), O(() => {
       l.value = null;
-    }), (i, u) => (y(), B(_(e.tag), {
+    }), (a, u) => (y(), B(_(e.tag), {
       ref_key: "element",
       ref: o
     }, {
       default: j(() => [
-        E(i.$slots, "default")
+        E(a.$slots, "default")
       ]),
       _: 3
     }, 512));

@@ -32,7 +32,7 @@ const simplebarInstance = ref<SimplebarInstanceRef>(null);
 const element = ref<TemplateRef>(null);
 const { tag: tagRef, ...options } = toRefs(props);
 
-defineExpose(simplebarInstance);
+defineExpose({value: simplebarInstance});
 provideSimplebar(simplebarInstance as Ref<SimpleBar>);
 
 function simplebarHookHandler(hook: 'mounted' | 'activated') {
