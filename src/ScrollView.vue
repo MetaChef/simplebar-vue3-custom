@@ -53,10 +53,10 @@ function simplebarHookHandler(hook: 'mounted' | 'activated') {
    const scrollElement = simplebar.getScrollElement();
    scrollElement.addEventListener('scroll', (e) => {
       emit('scroll', e);
-   }, { passive: true});
+   });
    scrollElement.addEventListener('wheel', (e) => {
       emit('wheel', e);
-   },{ passive: true});
+   });
    emit('created', simplebar);
 }
 
