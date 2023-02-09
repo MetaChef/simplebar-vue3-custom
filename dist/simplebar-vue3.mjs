@@ -6,12 +6,12 @@ function H(e) {
     return r ? { ...n, [t]: r } : n;
   }, {});
 }
-const f = Symbol("simplebar");
+const v = Symbol("simplebar");
 function M(e) {
-  b(f, e);
+  b(v, e);
 }
 function F() {
-  return S(f);
+  return S(v);
 }
 const L = /* @__PURE__ */ g({
   __name: "ScrollView",
@@ -28,24 +28,24 @@ const L = /* @__PURE__ */ g({
   },
   emits: ["created", "scroll", "wheel"],
   setup(e, { expose: n, emit: t }) {
-    const r = e, l = p(null), o = p(null), { tag: V, ...v } = k(r);
+    const r = e, l = p(null), o = p(null), { tag: V, ...f } = k(r);
     n({ value: l }), M(l);
-    function s(a) {
+    function c(a) {
       if (!o.value || a === "activated" && l.value)
         return;
-      const u = { ...x(v) }, d = H(u), i = new C(
+      const u = { ...x(f) }, d = H(u), i = new C(
         o.value,
         Object.keys(d).length > 0 ? d : void 0
       );
       l.value = i;
       const m = i.getScrollElement();
-      m.addEventListener("scroll", (c) => {
-        t("scroll", c);
-      }), m.addEventListener("wheel", (c) => {
-        t("wheel", c);
-      }), t("created", i);
+      m.addEventListener("scroll", (s) => {
+        t("scroll", s);
+      }, { passive: !0 }), m.addEventListener("wheel", (s) => {
+        t("wheel", s);
+      }, { passive: !0 }), t("created", i);
     }
-    return h(() => s("mounted")), w(() => s("activated")), O(() => {
+    return h(() => c("mounted")), w(() => c("activated")), O(() => {
       l.value = null;
     }), (a, u) => (y(), B(_(e.tag), {
       ref_key: "element",
